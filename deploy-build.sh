@@ -1,5 +1,5 @@
 #! /bin/bash
-cd ../build/meteor
+cd ../build
 rm -rf build
 tar xvf meteor.tar.gz
 cd bundle
