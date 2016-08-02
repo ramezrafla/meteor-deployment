@@ -15,6 +15,7 @@ We are using:
 2. tengine with stick session -- see our sample nginx.conf
 3. Shell scripts to push build via SSH
 4. Shell scripts to install build remotely on server
+5. Of course, nodejs / npm should be installed on your server (as well as pm2)
 
 # Folders
 
@@ -30,3 +31,9 @@ On the server,
 4. Reload PM2
 
 All this is done by calling local script ./build-remote.sh which takes care of everything (if you set things based on the folders above).
+
+# A note about tengine
+Tengine (http://tengine.taobao.org/documentation.html) is a fork of nginx but with solid production-grade features (that you would have to pay for with the pro versio of nginx). nginx.conf in this repo contains our (sanitized) setup. 
+
+# Bonus
+You will notice in the nginx.conf we are accessing the pm2 web interface to get real time view of how our processes are running (Really cool!)
