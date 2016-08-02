@@ -34,7 +34,7 @@ On the server,
 All this is done by calling local script ./build-remote.sh which takes care of everything (if you set things based on the folders above).
 
 # A note about tengine
-Tengine (http://tengine.taobao.org/documentation.html) is a fork of nginx but with solid production-grade features (that you would have to pay for with the pro versio of nginx). nginx.conf in this repo contains our (sanitized) setup. 
+Tengine (http://tengine.taobao.org/documentation.html) is a fork of nginx but with solid production-grade features (that you would have to pay for with the pro version of nginx). nginx.conf in this repo contains our (sanitized) setup. 
 
 # Bonus
 You will notice in the nginx.conf we are accessing the pm2 web interface to get real time view of how our processes are running (Really cool!)
