@@ -13,11 +13,12 @@ Please visit this forum thread to get the history: https://forums.meteor.com/t/d
 # Setup
 We are using:
 
-1. PM2 for all process management (see sample pm2.json which you have to start manually the first time on the server) -- and read PM2 docs for more info
-2. tengine with load balancer and sticky sessions -- see our sample nginx.conf
-3. Shell scripts to push build via SSH
-4. Shell scripts to install build remotely on server
-5. Of course, nodejs / npm should be installed on your server (as well as pm2)
+1. PM2 for all process management (see sample **pm2.json** which you have to start manually the first time on the server) -- and read PM2 docs for more info
+2. tengine with load balancer and sticky sessions -- see our sample **nginx.conf**
+3. Shell scripts to push build via SSH -- **remote-build.sh**
+4. Shell scripts to install build remotely on server -- **deploy-build.sh**
+5. Of course, nodejs / npm should be installed on your server (as well as pm2) -- and .sh are executable
+6. Key-based SSH
 
 # Folders
 
@@ -33,7 +34,7 @@ On the server,
 3. Decompress and install on server
 4. Reload PM2
 
-All this is done by calling local script ./build-remote.sh which takes care of everything (if you set things based on the folders above).
+All this is done by calling local script **./build-remote.sh** which takes care of everything (if you set things based on the folders above).
 
 # A note about tengine
 Tengine (http://tengine.taobao.org/documentation.html) is a fork of nginx but with solid production-grade features (that you would have to pay for with the pro version of nginx). nginx.conf in this repo contains our (sanitized) setup. 
