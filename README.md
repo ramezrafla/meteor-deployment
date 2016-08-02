@@ -39,6 +39,7 @@ All this is done by calling local script ./build-remote.sh which takes care of e
 Tengine (http://tengine.taobao.org/documentation.html) is a fork of nginx but with solid production-grade features (that you would have to pay for with the pro version of nginx). nginx.conf in this repo contains our (sanitized) setup. 
 
 # Bonus
-1. You will notice in the nginx.conf we are accessing the pm2 web interface to get real time view of how our processes are running (Really cool!)
+1. You will notice in the nginx.conf we are accessing the pm2 web interface to get real time view of how our processes are running (Really cool!) -- see image at top of this readme
 2. You will also notice in nginx.conf that status.example.org provides real-time view of the three meteor processes we have launched (load balancer status)
+![Status](https://github.com/ramezrafla/meteor-deployment/blob/master/screenshots/status.png?raw=true)
 3. We use Icinga2 (you can use Nagios too) to monitor server health, including checking on the load balancer status and pm2 processes (not included yet)
