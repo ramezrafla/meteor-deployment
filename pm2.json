@@ -1,0 +1,64 @@
+{
+  "apps":
+  [
+    {
+      "name": "pm2-web",
+      "cwd":"/usr/lib/node_modules/pm2-web",
+      "script": "pm2-web.js",
+      "args": "['--production', '--www.host=localhost', '--www.port=9001']"
+    },
+    {
+      "name": "mongodb",
+      "cwd":"/home/meteor/",
+      "script": "/usr/bin/mongod",
+      "args": "--port 27017 --dbpath db/ --replSet meteor --logpath db/db.log",
+      "interpeter":"none",
+      "exec-mode":"fork"
+    },
+    {
+      "name": "app-1",
+      "cwd":"/home/meteor/build/meteor/bundle",
+      "script": "main.js",
+      "env": {
+        "NODE_ENV":"production",
+        "WORKER_ID":"0",
+        "PORT":"5000",
+        "ROOT_URL":"https://app.example.org",
+        "MONGO_URL":"mongodb://localhost:27017/meteor",
+        "MONGO_OPLOG_URL":"mongodb://localhost:27017/local",
+        "HTTP_FORWARDED_COUNT":"1",
+        "METEOR_SETTINGS": {  }
+      }
+    },
+    {
+      "name": "app-2",
+      "cwd":"/home/meteor/build/meteor/bundle",
+      "script": "main.js",
+      "env": {
+        "NODE_ENV":"production",
+        "WORKER_ID":"1",
+        "PORT":"5001",
+        "ROOT_URL":"https://app.example.org",
+        "MONGO_URL":"mongodb://localhost:27017/meteor",
+        "MONGO_OPLOG_URL":"mongodb://localhost:27017/local",
+        "HTTP_FORWARDED_COUNT":"1",
+        "METEOR_SETTINGS": {  }
+      }
+    },
+    {
+      "name": "app-3",
+      "cwd":"/home/meteor/build/meteor/bundle",
+      "script": "main.js",
+      "env": {
+        "NODE_ENV":"production",
+        "WORKER_ID":"2",
+        "PORT":"5002",
+        "ROOT_URL":"https://app.example.org",
+        "MONGO_URL":"mongodb://localhost:27017/meteor",
+        "MONGO_OPLOG_URL":"mongodb://localhost:27017/local",
+        "HTTP_FORWARDED_COUNT":"1",
+        "METEOR_SETTINGS": {  }
+      }
+    }
+  ]
+}
