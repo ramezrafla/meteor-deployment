@@ -11,13 +11,22 @@ Please visit this forum thread to get the history: https://forums.meteor.com/t/d
 # Setup
 We are using:
 
-1. PM2 for all process management (see sample pm2.json) -- and read PM2 docs for more info
+1. PM2 for all process management (see sample pm2.json which you have to start manually the first time on the server) -- and read PM2 docs for more info
 2. tengine with stick session -- see our sample nginx.conf
 3. Shell scripts to push build via SSH
 4. Shell scripts to install build remotely on server
+
+# Folders
+
+On the server, 
+1. we assume the app will be started from /home/meteor/build
+2. pm2.json and deploy-build.sh should be located in /home/meteor/scripts
+
 
 # Process
 1. We compile on our dev machine
 2. Push the tarball onto server
 3. Decompress and install on server
 4. Reload PM2
+
+All this is done by calling local script ./build-remote.sh which takes care of everything (if you set things based on the folders above).
