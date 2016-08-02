@@ -20,6 +20,7 @@ We are using:
 # Folders
 
 On the server, 
+
 1. we assume the app will be started from /home/meteor/build
 2. pm2.json and deploy-build.sh should be located in /home/meteor/scripts
 
