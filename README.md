@@ -14,7 +14,7 @@ Please visit this forum thread to get the history: https://forums.meteor.com/t/d
 We are using:
 
 1. PM2 for all process management (see sample pm2.json which you have to start manually the first time on the server) -- and read PM2 docs for more info
-2. tengine with stick session -- see our sample nginx.conf
+2. tengine with load balancer and sticky sessions -- see our sample nginx.conf
 3. Shell scripts to push build via SSH
 4. Shell scripts to install build remotely on server
 5. Of course, nodejs / npm should be installed on your server (as well as pm2)
@@ -43,3 +43,10 @@ Tengine (http://tengine.taobao.org/documentation.html) is a fork of nginx but wi
 2. You will also notice in nginx.conf that status.example.org provides real-time view of the three meteor processes we have launched (load balancer status)
 ![Status](https://github.com/ramezrafla/meteor-deployment/blob/master/screenshots/status.png?raw=true)
 3. We use Icinga2 (you can use Nagios too) to monitor server health, including checking on the load balancer status and pm2 processes (not included yet)
+4. We use Cloudfront CDN (see http://joshowens.me/using-a-cdn-with-your-production-meteor-app/ with some improvements) and this is reflected in the nginx.conf
+
+# Meteor-based load balancer / deployment
+
+Many in the community use the Cluster package for managing meteor instances. This is a **lousy** solution. The explanation of the authors is that HAProxy is too complex. Agreed, but nginx / tengine include proper load balancers. We shouldn't use meteor to run webserver functions. This looks like the classical dev thinking s/he is a system admin.
+
+I personally dislike mup and even more mupx. The latter uses docker. The approach suggested here is for truly production-grade deployments. This is such an important issue, that I believe a good company either outsources deployment / hosting (e.g. Galaxy) or does it right.
