@@ -2,6 +2,8 @@
 This is a series of scripts and files for production-grade deployment of Meteor
 Please visit this forum thread to get the history: https://forums.meteor.com/t/deploying-to-aws-with-meteor-1-3-5-still-using-mup/27306/20
 
+[PM2 Web client](https://github.com/ramezrafla/meteor-deployment/blob/master/screenshots/pm2.png?raw=true)
+
 # Warnings
 1. First, this is for experienced system administrators. Please don't submit an issue asking 'How do I generate an SSH key'. 
 2. You should really look into using MDG's own hosting solution first. Only if you have different needs does it make sense to launch your own servers.
