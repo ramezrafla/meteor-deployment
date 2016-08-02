@@ -9,7 +9,8 @@ Please visit this forum thread to get the history: https://forums.meteor.com/t/d
 4. PR's are welcome
 
 # Setup
-We are using
+We are using:
+
 1. PM2 for all process management (see sample pm2.json) -- and read PM2 docs for more info
 2. tengine with stick session -- see our sample nginx.conf
 3. Shell scripts to push build via SSH
