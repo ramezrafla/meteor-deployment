@@ -43,6 +43,7 @@ Tengine (http://tengine.taobao.org/documentation.html) is a fork of nginx but wi
 2. You will also notice in nginx.conf that status.example.org provides real-time view of the three meteor processes we have launched (load balancer status -- see image below)
 
 ![Status](https://github.com/ramezrafla/meteor-deployment/blob/master/screenshots/status.png?raw=true)
+
 3. We use Icinga2 (you can use Nagios too) to monitor server health, including checking on the load balancer status and pm2 processes (not included yet)
 4. We use Cloudfront CDN (see http://joshowens.me/using-a-cdn-with-your-production-meteor-app/ with some improvements) and this is reflected in the nginx.conf
 
