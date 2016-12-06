@@ -8,6 +8,7 @@ Please visit this forum thread to get the history: https://forums.meteor.com/t/d
 1. First, this is for experienced system administrators. Please don't submit an issue asking 'How do I generate an SSH key'. 
 2. You should really look into using MDG's own hosting solution first. Only if you have different needs does it make sense to launch your own servers.
 3. These scripts are sanitized versions of what we are currently using for our app (https://zeschool.zegenie.com), we will make every effort to keep up to date
+4. Both Mongo and Redis (to support redis-oplog https://github.com/cult-of-coders/redis-oplog) are launched on the same server, disable in pm2.json / launch scripts
 4. PR's are welcome
 
 # Setup
@@ -17,8 +18,9 @@ We are using:
 2. tengine with load balancer and sticky sessions -- see our sample **nginx.conf**
 3. Shell scripts to push build via SSH -- **remote-build.sh**
 4. Shell scripts to install build remotely on server -- **deploy-build.sh**
-5. Of course, nodejs / npm should be installed on your server (as well as pm2) -- and .sh are executable
+5. Of course, nodejs / npm should be installed on your server (as well as pm2) -- and .sh in this repo are executable
 6. Key-based SSH
+7. Mongo and Redis (**pm2.json**) on the same server, allocate a process for Mongo
 
 # Folders
 
@@ -45,7 +47,7 @@ Tengine (http://tengine.taobao.org/documentation.html) is a fork of nginx but wi
 3. We use Icinga2 (you can use Nagios too) to monitor server health, including checking on the load balancer status and pm2 processes (not included yet)
 4. We use Cloudfront CDN (see http://joshowens.me/using-a-cdn-with-your-production-meteor-app/ with some improvements) and this is reflected in the nginx.conf
 
-# Meteor-based load balancer / deployment
+# Should I use Meteor-based load balancer / deployment
 
 Many in the community use the Cluster package for managing meteor instances. This is a **lousy** solution. The explanation of the authors is that HAProxy is too complex. Agreed, but nginx / tengine include proper load balancers. We shouldn't use meteor to run webserver functions. This looks like the classical dev thinking s/he is a system admin.
 
