@@ -16,6 +16,14 @@
       "exec-mode":"fork"
     },
     {
+      "name": "redis",
+      "cwd":"/home/meteor",
+      "script": "redis-server",
+      "args":"",
+      "interpeter":"none",
+      "exec-mode":"fork"
+    },   
+    {
       "name": "app-1",
       "cwd":"/home/meteor/build/bundle",
       "script": "main.js",
