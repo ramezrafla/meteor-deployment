@@ -8,7 +8,7 @@ Please visit this forum thread to get the history: https://forums.meteor.com/t/d
 1. First, this is for experienced system administrators. Please don't submit an issue asking 'How do I generate an SSH key'. 
 2. You should really look into using MDG's own hosting solution first. Only if you have different needs does it make sense to launch your own servers.
 3. These scripts are sanitized versions of what we are currently using for our app (https://zeschool.zegenie.com), we will make every effort to keep up to date
-4. Both Mongo and Redis (to support redis-oplog https://github.com/cult-of-coders/redis-oplog) are launched on the same server, disable in pm2.json / launch scripts
+4. Mongo (and Redis if you wnat to use redis-oplog https://github.com/cult-of-coders/redis-oplog) launched on the same server, disable in pm2.json / launch scripts if you are using external DB service
 4. PR's are welcome
 
 # Setup
